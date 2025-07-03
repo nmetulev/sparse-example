@@ -1,0 +1,43 @@
+{
+  "name": "sparse-example",
+  "version": "1.0.0",
+  "description": "An example Electron application using sparse packaging",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "make-msix": "node buildtools/run-buildtool.js makeappx.exe pack /o /d \"./msix\" /nv /p \"./dist/SparseExample.msix\""
+  },
+   "build": {
+    "appId": "com.metulev.sparseexample",
+    "productName": "SparseExample",
+    "win": {
+      "target": "msi",
+      "icon": "assets/icon.png"
+    },
+    "msi": {
+      "warningsAsErrors": false,
+      "additionalWixArgs": ["-sice:ICE61"]
+    },
+    "extraFiles": [
+      {
+        "from": "app.manifest",
+        "to": "${productFilename}.exe.manifest"
+      }
+    ],
+    "protocols": [
+      {
+        "name": "MyApp protocol",
+        "schemes": ["sparse-example"]
+      }
+    ]
+  },
+  "keywords": [],
+  "author": "Metulev",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^37.1.0",
+    "electron-builder": "^26.0.12"
+  }
+}

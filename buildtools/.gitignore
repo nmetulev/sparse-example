@@ -1,0 +1,6 @@
+# Ignore the extracted Windows SDK BuildTools folder
+Microsoft.Windows.SDK.BuildTools/
+
+# Ignore any downloaded .nupkg files
+*.nupkg
+*.zip
