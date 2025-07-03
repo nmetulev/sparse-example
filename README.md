@@ -23,6 +23,8 @@
 
 1. You can then test the registered action by testing with the App Action Testing Playground App found here https://apps.microsoft.com/detail/9PLSWV2GR8B4?hl=en-us&gl=US&ocid=pdpshare
 
+![image](https://github.com/user-attachments/assets/f6745b69-50a2-4ad8-a97b-5cb00f800a8e)
+
 
 ## Relevant docs
 
