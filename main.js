@@ -41,8 +41,12 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow()
 
-  const url = process.argv.find(a => a.startsWith(`${PROTOCOL}://`));
-  if (url) handleDeepLink(url);
+  setTimeout(() => {
+    // This is a workaround to ensure the app can handle deep links
+    // when launched from the command line or as a default protocol handler.
+    const url = process.argv.find(a => a.startsWith(`${PROTOCOL}://`));
+    if (url) handleDeepLink(url);
+  }, 2000); 
 });
 
 app.on('window-all-closed', () => {

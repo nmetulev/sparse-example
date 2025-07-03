@@ -4,7 +4,7 @@
     {
       "id": "ExampleAppActionProvider.SendMessage",
       "description": "Send a message",
-      "icon": "ms-resource://Files/Assets/StoreLogo.png",
+      "icon": "ms-resource://assets/StoreLogo.png",
       "usesGenerativeAI": false,
       "inputs": [
         {
@@ -20,15 +20,9 @@
           "description": "Send message '${message.Text}'"
         }
       ],
-      "outputs": [
-        {
-          "name": "response",
-          "kind": "Text"
-        }
-      ],
       "invocation": {
         "type": "Uri",
-        "uri": "sparse-example://send-message?message={message.Text}"
+        "uri": "sparse-example://send-message?message=${message.Text}"
       }
     }
   ]

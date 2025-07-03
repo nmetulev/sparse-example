@@ -47,7 +47,7 @@
                           Square44x44Logo="Images\Square44x44Logo.png" />
       <Extensions>
         <uap3:Extension Category="windows.appExtension">
-          <uap3:AppExtension Name="com.microsoft.windows.ai.actions" DisplayName="Electron App Action Provider" Id="SparseExample" PublicFolder="assets">
+          <uap3:AppExtension Name="com.microsoft.windows.ai.actions" DisplayName="Electron App Action Provider" Id="SparseExample">
             <uap3:Properties>
               <Registration>registration.json</Registration>
             </uap3:Properties>
