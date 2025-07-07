@@ -5,12 +5,19 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "make-msix": "node buildtools/run-buildtool.js makeappx.exe pack /o /d \"./msix\" /nv /p \"./dist/SparseExample.msix\""
+    
+    "build": "electron-builder --dir",
+    "package-msi": "electron-builder",
+
+    "make-msix": "node make-msix.js",
+    "make-msix-prepare": "node make-msix.js --prepare-only",
+    "make-msix-build": "node make-msix.js --build-only",
+
+    "make-msix-sparse": "node buildtools/run-buildtool.js makeappx.exe pack /o /d \"./msix\" /nv /p \"./dist/SparseExample.msix\""
   },
    "build": {
     "appId": "com.metulev.sparseexample",
+    "afterPack": "./afterPack.js",
     "productName": "SparseExample",
     "win": {
       "target": "msi",
@@ -20,12 +27,6 @@
       "warningsAsErrors": false,
       "additionalWixArgs": ["-sice:ICE61"]
     },
-    "extraFiles": [
-      {
-        "from": "app.manifest",
-        "to": "${productFilename}.exe.manifest"
-      }
-    ],
     "protocols": [
       {
         "name": "MyApp protocol",

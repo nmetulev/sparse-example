@@ -1,7 +1,7 @@
 ## Running the sample
 1. First clone and run `npm install`.
 
-1. Package the app with `npm run dist`
+1. Package the app with `npm run package`
 
     > The sample uses electron-builder for packaging the app as msi, but everything should work for other types. 
 
@@ -36,3 +36,34 @@ App Actions documentation: https://learn.microsoft.com/en-us/windows/ai/app-acti
 To get sparse packaging an Electron app to work, I've had to  disable sandboxing, creating a security concern (see `main.js:6`). This will need to be resolved to make this a viable solution for production apps.
 
 As alternative, packaging the app fully with MSIX works and should be used instead.
+
+
+
+# Package as full msix
+To test the app packaged as a MSIX, I added a script that manually test the app as msix. Run these commands:
+
+```bash
+ # if not ran already
+npm run install
+```
+
+```bash
+# to build the app for prod, but not package
+# the output will be in the dist/win-unpacked folder
+npm run build 
+```
+
+```bash
+# copy the msix/appxmanifest-full.xml to the dist folder above and rename to appxmanifest.xml
+# also copy the msix/assets folder
+npm run make-msix-prepare
+```
+
+You can run the `Add-AppxPackage` command to install the msix
+```ps
+Add-AppxPackage -Register .\dist\win-unpacked\appxmanifest.xml
+```
+
+Run the app from the start menu (it should be called `ElectronExample`)
+
+> Alternatively, you can package the app as msix with `npm run make-msix` but you will need to sign it before installing - I didn't go as far to automate signing the package :D

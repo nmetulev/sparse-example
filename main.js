@@ -3,7 +3,7 @@ const path = require('path');
 
 // temp workaround for Sparse packaging issues
 // do not use in production
-app.commandLine.appendSwitch('--no-sandbox');
+// app.commandLine.appendSwitch('--no-sandbox');
 
 // Handle deep links
 let PROTOCOL = 'sparse-example';

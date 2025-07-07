@@ -11,16 +11,14 @@
   IgnorableNamespaces="uap uap2 uap3 rescap desktop desktop6 uap10">
 
   <Identity 
-    Name="SparseExample" 
+    Name="ElectronExampleFullMsix" 
     Publisher="CN=Metulev" 
     Version="1.0.0.0"  />
 
   <Properties>
-    <DisplayName>SparseExample</DisplayName>
+    <DisplayName>ElectronExampleFullMsix</DisplayName>
     <PublisherDisplayName>Metulev</PublisherDisplayName>
     <Logo>Assets\icon.png</Logo>
-    <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
-    <desktop6:RegistryWriteVirtualization>disabled</desktop6:RegistryWriteVirtualization>
   </Properties>
 
   <Resources>
@@ -33,21 +31,22 @@
 
   <Capabilities>
     <rescap:Capability Name="runFullTrust" />
-    <rescap:Capability Name="unvirtualizedResources"/>
-    <rescap:Capability Name="allowElevation" />
   </Capabilities>
 
   <Applications>
-    <Application Id="SparseExamplePkg" Executable="SparseExample.exe" uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="packagedClassicApp"> 
-      <uap:VisualElements AppListEntry="none" 
-                          DisplayName="SparseExample" 
-                          Description="SparseExample App" 
+    <Application Id="ElectronExampleFullMsixPkg" 
+                 Executable="SparseExample.exe"
+                 EntryPoint="Windows.FullTrustApplication"
+                 uap10:TrustLevel="mediumIL" 
+                 uap10:RuntimeBehavior="packagedClassicApp"> 
+      <uap:VisualElements DisplayName="ElectronExample" 
+                          Description="ElectronExample App" 
                           BackgroundColor="transparent" 
                           Square150x150Logo="Images\Square150x150Logo.png"
                           Square44x44Logo="Images\Square44x44Logo.png" />
       <Extensions>
         <uap3:Extension Category="windows.appExtension">
-          <uap3:AppExtension Name="com.microsoft.windows.ai.actions" DisplayName="Electron App Action Provider" Id="SparseExample">
+          <uap3:AppExtension Name="com.microsoft.windows.ai.actions" DisplayName="Electron App Action Provider" Id="ElectronExample">
             <uap3:Properties>
               <Registration>registration.json</Registration>
             </uap3:Properties>
