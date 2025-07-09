@@ -45,6 +45,7 @@
                           Square150x150Logo="Images\Square150x150Logo.png"
                           Square44x44Logo="Images\Square44x44Logo.png" />
       <Extensions>
+
         <uap3:Extension Category="windows.appExtension">
           <uap3:AppExtension Name="com.microsoft.windows.ai.actions" DisplayName="Electron App Action Provider" Id="ElectronExample">
             <uap3:Properties>
@@ -52,6 +53,12 @@
             </uap3:Properties>
           </uap3:AppExtension>
         </uap3:Extension>
+
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="sparse-example">
+            <uap:DisplayName>Sparse Example Full MSIX Protocol</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
