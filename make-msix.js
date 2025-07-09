@@ -167,7 +167,18 @@ async function preparePackage() {
     }
     
     await copyDirectory(ASSETS_SOURCE_DIR, ASSETS_DEST_DIR);
-    
+
+    // Step 1.5: Copy the registration.json file
+    console.log("Copying registration.json...");
+    const registrationSource = path.join(MSIX_SOURCE_DIR, "registration.json");
+    const registrationDest = path.join(PACKAGE_DIR, "registration.json");
+
+    if (!fs.existsSync(registrationSource)) {
+      throw new Error(`Registration file not found: ${registrationSource}`);
+    }
+
+    await copyFile(registrationSource, registrationDest);
+
     console.log("Package preparation completed successfully!");
     
   } catch (error) {

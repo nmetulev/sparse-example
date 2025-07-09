@@ -40,7 +40,7 @@ As alternative, packaging the app fully with MSIX works and should be used inste
 
 
 # Package as full msix
-To test the app packaged as a MSIX, I added a script that manually test the app as msix. Run these commands:
+To test the app packaged as a MSIX, I added a script to run the app as msix. Run these commands:
 
 ```bash
  # if not ran already
